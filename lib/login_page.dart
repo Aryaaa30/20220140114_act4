@@ -16,24 +16,24 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     final _formkey = GlobalKey<FormState>();
     return Scaffold(
       body: Form(
-         key: _formkey,
+        key: _formkey,
         child: Padding(
-           padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextFormField(
-                 controller: emailController,
+                controller: emailController,
                 decoration: const InputDecoration(labelText: 'Email'),
                 validator: (value) {
-                  if (value== null || value.isEmpty){
-                      return 'Please enter your email';
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your email';
                   }
-                   return null;
+                  return null;
                 },
               ),
               TextFormField(
@@ -58,10 +58,19 @@ class _LoginPageState extends State<LoginPage> {
                 },
                 child: Text('Login'),
               ),
-            ]
-          )
-        )
-      )
-    )
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => RegisterPage()),
+                  );
+                },
+                child: Text('Belum punya akun? Daftar'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
