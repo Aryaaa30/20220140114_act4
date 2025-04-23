@@ -47,6 +47,17 @@ class _LoginPageState extends State<LoginPage> {
                   return null;
                 },
               ),
+              ElevatedButton(
+                onPressed: () {
+                  if (_formkey.currentState!.validate()) {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => const HomePage()),
+                    );
+                  }
+                },
+                child: Text('Login'),
+              ),
             ]
           )
         )
